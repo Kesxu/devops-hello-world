@@ -1,18 +1,19 @@
-name: My First CI Pipeline 
-on:[push] #Run this every time i push code 
+name: My First CI Pipeline
+
+on: [push]
 
 jobs:
-build-and-test:
-runs-on: unbuntu-latest #use a linux server hosted by Github
+  build-and-test:
+    runs-on: ubuntu-latest  # Fixed spelling here
 
-steps: 
-- name: Checkout code 
-  uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-- name: Set up Python 
-  uses: actions/setup-python@v4
-  with: 
-   python-version: '3.9'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-- name: Run Tests 
-  run: python test_app.py 
+      - name: Run Tests
+        run: python test_app.py
